@@ -48,21 +48,7 @@ body{
 
 
 
-@-moz-document url-prefix() { /* Disable scrollbar Firefox */
-  html{
-    scrollbar-width: none;
-  }
-}
-body {
-  margin: 0; /* remove default margin */
-  scrollbar-width: none; /* Also needed to disable scrollbar Firefox */
-  -ms-overflow-style: none;  /* Disable scrollbar IE 10+ */
-  overflow-y: scroll;
-}
-body::-webkit-scrollbar {
-  width: 0px;
-  background: transparent; /* Disable scrollbar Chrome/Safari/Webkit */
-}
+
 
 a{
   color: #009ee0 ;
@@ -71,3 +57,5 @@ a{
 .not-found{
 margin-bottom: 35px;
 }
+
+

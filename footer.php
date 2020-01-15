@@ -85,6 +85,13 @@
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
+
+<div class="jmh-scrollbar-wrap">
+		<div class="jmh-scrollbar">
+			<div class="jmh-scrollbar--dot"></div>
+		</div>
+</div>
+
 <?php wp_footer(); ?>
 
 </body>

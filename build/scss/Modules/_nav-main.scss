@@ -13,7 +13,6 @@ body {
 }
 
 .main-navigation {
- 
   position: fixed;
   top: 0;
   background: linear-gradient(-45deg, #009ee0, #53b278);
@@ -170,8 +169,9 @@ body {
       display: none;
     }
 
-    @-moz-document url-prefix() { /* Disable scrollbar Firefox */
-      .menu{
+    @-moz-document url-prefix() {
+      /* Disable scrollbar Firefox */
+      .menu {
         scrollbar-width: none;
       }
     }

@@ -77,11 +77,7 @@
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 	
-	<div class="jmh-scrollbar-wrap">
-		<div class="jmh-scrollbar">
-			<div class="jmh-scrollbar--dot"></div>
-		</div>
-	</div>
+
 
 	<div id="content" class="site-content">
 	
