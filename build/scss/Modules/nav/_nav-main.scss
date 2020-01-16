@@ -35,6 +35,7 @@ body {
   }
 
   a {
+    position: relative;
     text-decoration: none;
     color: $fc2;
   }
@@ -74,19 +75,21 @@ body {
       height: 100%;
 
       .menu-item {
-        position: relative;
+        // position: relative;
         list-style: none;
         white-space: nowrap;
       }
 
-      .menu-item:hover::after {
+      .menu-item:not(.current-menu-item) > a:hover::before {
         content: "";
         pointer-events: none;
         margin: 0 auto;
+        top: 0;
         left: 0;
         right: 0;
         position: absolute;
         width: 50%;
+        height: 70%;
         font-weight: 600;
         border-bottom: $fc2 solid 2px;
         border-color: inherit;
@@ -112,48 +115,58 @@ body {
           align-items: center;
         }
         > .sub-menu {
-          display: none;
+          height: 0px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+          opacity: 0;
+          position: absolute;
+          top: 100%;
+          background: linear-gradient(-45deg, #009ee0, #53b278);
+          background-size: 150% 150%;
+          animation: gradientBG 5s ease infinite;
+          left: 0;
+          width: 100%;
+          transition: all 0.25s ease-in-out;
+          transition-delay: 0.05s;
+          .menu-item {
+            margin: 10px 20px;
+            width: fit-content;
+            height: 50px;
+            a {
+              height: 100%;
+              white-space: nowrap;
+              width: fit-content;
+            }
+          }
+          > .sub-menu {
+            display: none;
+          }
         }
       }
 
       > .menu-item:hover {
         > .sub-menu {
-          display: block;
-          position: absolute;
-          top: 100%;
-          background: linear-gradient(-45deg, #009ee0, #53b278);
-          right: 0;
-          margin: 0;
-          padding: 0;
-
-          .menu-item {
-            margin: 10px 20px;
-            width: fit-content;
-            a {
-              white-space: nowrap;
-              width: fit-content;
-            }
-          }
-          .current-menu-item::after {
-            height: 3px;
-          }
+          opacity: 1;
+          height: 50px;
         }
-      }
-
-      .current-menu-item::after {
-        height: 70%;
       }
     }
   }
 
-  .current-menu-item::after {
+  .current-menu-item > a::before {
     content: "";
     pointer-events: none;
     margin: 0 auto;
     left: 0;
     right: 0;
     position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
+    height: 70%;
     font-weight: 600;
     border-bottom: $fc2 solid 2px;
     border-color: inherit;

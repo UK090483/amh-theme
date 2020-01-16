@@ -1,0 +1,110 @@
+.nav--upper {
+    display: flex;
+    height: 70px;
+    transition: height $nav-transition;
+    z-index: 1000;
+  }
+
+  .nav--upper > .nav--logo {
+    display: flex;
+    height: inherit;
+    align-items: center;
+    h1 {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      white-space: nowrap;
+      font-size: 1.2rem;
+    }
+  }
+  .nav--upper > .nav--links {
+    z-index: 1000;
+    display: none;
+    @media screen and (min-width: $nav-breackingpoint) {
+      display: flex;
+    }
+
+    margin-left: auto;
+    .menu {
+      z-index: 1000;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      height: 100%;
+
+      .menu-item {
+        z-index: 1000;
+        position: relative;
+        list-style: none;
+        white-space: nowrap;
+      }
+
+      .menu-item:hover::after {
+        content: "";
+        pointer-events: none;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        position: absolute;
+        width: 50%;
+        font-weight: 600;
+        border-bottom: $fc2 solid 2px;
+        border-color: inherit;
+        animation: lineIn linear 0.1s alternate forwards;
+      }
+
+      @keyframes lineIn {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      > .menu-item {
+        z-index: 1000;
+        display: flex;
+        align-items: stretch;
+        height: 100%;
+
+        a {
+          display: flex;
+          align-items: center;
+        }
+        > .sub-menu {
+          display: none;
+        }
+      }
+
+      > .menu-item:hover {
+        > .sub-menu {
+          z-index: 1000;
+          display: block;
+          position: absolute;
+          top: 100%;
+          background: linear-gradient(-45deg, #009ee0, #53b278);
+          right: 0;
+          margin: 0;
+          padding: 0;
+
+          .menu-item {
+            margin: 10px 20px;
+            width: fit-content;
+            a {
+              white-space: nowrap;
+              width: fit-content;
+            }
+          }
+          .current-menu-item::after {
+            height: 3px;
+          }
+        }
+      }
+
+      .current-menu-item::after {
+        height: 70%;
+      }
+    }
